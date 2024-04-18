@@ -14,7 +14,8 @@
     "prettier": "^3.2.5"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "serve-index": "^1.9.1"
   },
   "volta": {
     "node": "20.12.2",
