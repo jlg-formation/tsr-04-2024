@@ -1,6 +1,6 @@
 console.log("About to start a server...");
 
-import express from "express";
+import express, { RequestHandler } from "express";
 import serveIndex from "serve-index";
 
 import api from "./api";
@@ -8,10 +8,13 @@ import api from "./api";
 const app = express();
 const port = 3000;
 const publicDir = ".";
-app.use((req, res, next) => {
+
+const log: RequestHandler = (req, res, next) => {
   console.log("req: ", req.method, req.url);
   next();
-});
+};
+
+app.use(log);
 
 app.use("/api", api);
 
