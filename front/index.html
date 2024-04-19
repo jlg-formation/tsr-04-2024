@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -13,6 +13,20 @@
       <g class="samples"></g>
       <g class="lines"></g>
     </svg>
+    <div class="command">
+      <label class="samples">
+        <span>Echantillons : <span class="value">xxx</span></span>
+        <input type="range" min="0" max="100" step="1" />
+      </label>
+      <label class="multiplicationFactor">
+        <span>Facteur de multiplication : <span class="value">xxx</span></span>
+        <input type="range" min="0" max="200" step="1" />
+      </label>
+      <div class="buttons">
+        <button>Play</button>
+        <button>Random</button>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
