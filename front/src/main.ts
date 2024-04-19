@@ -23,7 +23,7 @@ for (let i = 0; i < samples; i++) {
 
   const circle = document.createElementNS(
     "http://www.w3.org/2000/svg",
-    "circle"
+    "circle",
   );
   circle.setAttribute("cx", cx + "");
   circle.setAttribute("cy", cy + "");
