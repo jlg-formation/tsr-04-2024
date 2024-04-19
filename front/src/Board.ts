@@ -22,8 +22,6 @@ export class Board {
 
     const { samples, multiplicationFactor } = this.config;
     for (let i = 0; i < samples; i++) {
-      console.log("i: ", i);
-
       const angle = getAngle(i, samples);
 
       const cx = cx0 + r0 * Math.cos(angle);
@@ -40,8 +38,6 @@ export class Board {
     }
 
     for (let i = 0; i < samples; i++) {
-      console.log("i: ", i);
-
       const angle1 = getAngle(i, samples);
       const { x: x1, y: y1 } = getCoordinatesOnCircle(angle1);
 

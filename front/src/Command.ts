@@ -16,14 +16,12 @@ export class Command {
     const array = keys(this.config);
     for (const key of array) {
       const elt = querySelector(`div.command label.${key} .value`);
-      console.log("elt: ", elt);
       elt.innerHTML = this.config[key] + "";
 
       const sliderElt = querySelector(
         `div.command label.${key} input`,
         HTMLInputElement,
       );
-      console.log("sliderElt: ", sliderElt);
       sliderElt.value = this.config[key] + "";
     }
   }
@@ -37,7 +35,6 @@ export class Command {
       );
 
       sliderElt.addEventListener("input", () => {
-        console.log("input");
         this.config[key] = Number(sliderElt.value);
         this.render();
         this.callback(this.config);
