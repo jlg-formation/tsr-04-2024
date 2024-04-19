@@ -19,6 +19,7 @@ div.command {
     button {
       cursor: pointer;
       padding: 0.5em 1em;
+      width: 10em;
     }
   }
 }

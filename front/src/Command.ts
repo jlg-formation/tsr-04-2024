@@ -1,15 +1,32 @@
+import { step } from "./constants";
 import { Config } from "./interfaces/Config";
-import { keys, querySelector } from "./utils";
+import { keys, querySelector, round, sleep } from "./utils";
 
 type Callback = (newConfig: Config) => void;
 
 export class Command {
   callback: Callback = () => {};
+  isPlaying = false;
 
   constructor(private config: Config) {
     console.log("config: ", this.config);
     this.render();
     this.setActions();
+  }
+
+  async play(): Promise<void> {
+    while (this.isPlaying) {
+      await sleep(15);
+
+      let mf = this.config.multiplicationFactor;
+      mf += step;
+      mf %= 100;
+      mf = round(mf, 2);
+      this.config.multiplicationFactor = mf;
+
+      this.render();
+      this.callback(this.config);
+    }
   }
 
   render(): void {
@@ -24,6 +41,8 @@ export class Command {
       );
       sliderElt.value = this.config[key] + "";
     }
+
+    querySelector("button.play").innerHTML = this.isPlaying ? "Pause" : "Play";
   }
 
   setActions(): void {
@@ -40,6 +59,15 @@ export class Command {
         this.callback(this.config);
       });
     }
+
+    querySelector("button.play").addEventListener("click", () => {
+      console.log("click");
+      this.isPlaying = !this.isPlaying;
+      this.render();
+      if (this.isPlaying) {
+        this.play();
+      }
+    });
   }
 
   update(callback: Callback): void {

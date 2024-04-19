@@ -17,3 +17,12 @@ export const querySelector = <T extends HTMLElement>(
 export const keys = <T extends object>(object: T): (keyof T)[] => {
   return Object.keys(object) as (keyof T)[];
 };
+
+export const sleep = (delay: number): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, delay);
+  });
+};
+
+export const round = (n: number, decimal: number): number =>
+  +n.toFixed(decimal);
