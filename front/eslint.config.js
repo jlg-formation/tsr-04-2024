@@ -9,8 +9,15 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    ignores: ["dist/**"],
     rules: {
       eqeqeq: ["error"],
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        {
+          allowExpressions: true,
+        },
+      ],
     },
   },
 ];
