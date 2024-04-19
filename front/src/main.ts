@@ -1,15 +1,8 @@
+import { cx0, r0, cy0, r } from "./constants";
 import "./style.css";
+import { querySelector } from "./utils";
 
-const r = 1;
-
-const cx0 = 50;
-const cy0 = 50;
-const r0 = 45;
-
-const gSamples = document.querySelector(".samples");
-if (gSamples === null) {
-  throw new Error("Cannot find selector .samples");
-}
+const gSamples = querySelector(".samples");
 
 const samples = 10;
 const multiplicationFactor = 2;
@@ -31,10 +24,7 @@ for (let i = 0; i < samples; i++) {
   gSamples.appendChild(circle);
 }
 
-const gLines = document.querySelector(".lines");
-if (gLines === null) {
-  throw new Error("Cannot find selector .lines");
-}
+const gLines = querySelector(".lines");
 
 for (let i = 0; i < samples; i++) {
   console.log("i: ", i);
